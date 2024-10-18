@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={`${outfit.className} antialiased bg-zinc`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
