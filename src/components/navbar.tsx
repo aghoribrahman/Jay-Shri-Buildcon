@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   DropdownMenu,
@@ -9,31 +9,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Moon, Sun } from "lucide-react";
 import JayShree from "../../public/Jay Shree.png";
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState("light"); // Default theme is light
-
-  // Check local storage for theme preference on mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      setTheme("light"); // Set default to light if no preference is found
-    }
-  }, []);
-
-  // Toggle theme and save preference in local storage
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme); // Save preference
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
-  };
-
+  const { setTheme, theme } = useTheme();
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const menuItems = [
@@ -47,22 +29,22 @@ const Navbar = () => {
   ];
 
   // Smooth scroll function
-  const handleSmoothScroll = (e, href) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(href);
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault(); // Prevent default anchor click behavior
+    const targetElement = document.querySelector(href); // Select the target element
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll to the target element smoothly
     }
   };
 
   return (
     <motion.nav
-      className={`sticky top-0 z-50 bg-white shadow-md dark:bg-black`}
+      className={`sticky top-0 z-50 bg-white shadow-md dark:bg-black`} // Ensure it sticks to the top
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container-fluid md:max-w-[1200px] mx-auto flex justify-between items-center p-2">
+      <div className="container-fluid md:max-w-[1200px] mx-auto flex justify-between items-center p-2"> {/* Added padding for better spacing */}
         <Link href="/" className="text-xl font-bold flex items-center ">
           <Image 
             src={JayShree} 
@@ -78,7 +60,7 @@ const Navbar = () => {
             <a
               key={item.name}
               href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
+              onClick={(e) => handleSmoothScroll(e, item.href)} // Use smooth scroll function
               className="font-outfit text-lg text-slate-800 dark:text-white 
                         hover:bg-zinc-700 hover:text-white p-2 
                         transition-all duration-300 
@@ -88,8 +70,8 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          <button onClick={toggleTheme} className="text-gray-800 dark:text-white">
-            {theme === "light" ? <Sun /> : <Moon />}
+          <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="text-gray-800 dark:text-white">
+            {theme === "dark" ? <Sun /> : <Moon />}
           </button>
         </div>
 
@@ -133,7 +115,7 @@ const Navbar = () => {
                   <DropdownMenuItem className="rounded-none hover:bg-transparent focus:bg-transparent h-10">
                     <a
                       href={item.href}
-                      onClick={(e) => handleSmoothScroll(e, item.href)}
+                      onClick={(e) => handleSmoothScroll(e, item.href)} // Use smooth scroll function
                       className="w-full p-2 text-lg hover:bg-zinc-700 rounded-md transition-transform duration-300 transform hover:-translate-y-1 dark:text-white"
                     >
                       {item.name}
@@ -143,7 +125,7 @@ const Navbar = () => {
               ))}
               {/* Theme Toggle for Mobile */}
               <DropdownMenuItem className="rounded-none hover:bg-transparent focus:bg-transparent h-10">
-                <button onClick={toggleTheme} className="w-full p-2 text-lg hover:bg-zinc-700 rounded-md transition-transform duration-300 transform dark:text-white">
+                <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="w-full p-2 text-lg hover:bg-zinc-700 rounded-md transition-transform duration-300 transform dark:text-white">
                   {theme === "dark" ? <Sun /> : <Moon />}
                 </button>
               </DropdownMenuItem>
