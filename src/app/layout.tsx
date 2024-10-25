@@ -6,7 +6,7 @@ import { outfit } from "@/app/fonts/fonts";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Jay Shree Buildicon Infra",
+  title: "Jay Shri Buildicon Infra",
   description: "Construction Company",
 };
 

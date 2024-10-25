@@ -7,24 +7,27 @@ const Blogs = () => {
   const blogPosts = [
     {
       id: 1,
-      date: "Apr 8, 2022",
+      date: "Apr 8, 2024",
       readTime: "6 min read",
-      title: "Starting and Growing a Career in Web Design",
-      image: "/blog-img-1.avif",
+      title: "Innovation In Construction Technology",
+      image: "/blog1.webp",
+      url: "https://aashiyana.tatasteel.com/in/en/blogs-articles/innovation-in-construction-technology.html", // Add URL for the blog post
     },
     {
       id: 2,
-      date: "Mar 15, 2022",
+      date: "Mar 15, 2024",
       readTime: "5 min read",
-      title: "Create a Landing Page That Performs Great",
-      image: "/blog-img-2.avif",
+      title: "Understanding RCC Construction & Structural Loads",
+      image: "/blog2.webp",
+      url: "https://aashiyana.tatasteel.com/in/en/blogs-articles/understanding-rcc-construction---structural-loads.html", // Add URL for the blog post
     },
     {
       id: 3,
       date: "Feb 28, 2022",
       readTime: "7 min read",
-      title: "How Can Designers Prepare for the Future?",
-      image: "/blog-img-3.avif",
+      title: "Real Estate Industry in India: Complete Guide",
+      image: "/blog3.webp",
+      url: "https://aashiyana.tatasteel.com/in/en/blogs-articles/the-real-estate-industry-in-india.html", // Add URL for the blog post
     },
   ];
 
@@ -60,8 +63,11 @@ const Blogs = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
           {blogPosts.map((post) => (
-            <motion.div
+            <motion.a // Change to motion.a for clickable link
               key={post.id}
+              href={post.url} // Set the URL here
+              target="_blank" // Open in a new tab (optional)
+              rel="noopener noreferrer" // Security best practice for external links
               initial={{ opacity: 0, y: 20 }} // Initial state
               animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation state
               transition={{ duration: 0.5, delay: 0.2 }} // Delay for staggered effect
@@ -81,12 +87,10 @@ const Blogs = () => {
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">{post.title}</h3>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
-        <div className="my-6 flex justify-center items-center">
-          <Button size="lg">Read More</Button>
-        </div>
+       
       </div>
     </div>
   );

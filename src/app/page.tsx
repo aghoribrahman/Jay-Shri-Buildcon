@@ -35,14 +35,33 @@ export default function Home() {
     };
   }, []);
 
+  const logos = [
+    { img: "/logos/Tool1.png" },
+    { img: "/logos/Tool2.png" },
+    { img: "/logos/Tool3.png" },
+    { img: "/logos/Tool4.png" },
+   
+  ];
+  
+  const workImages = [
+    { img: "/Images/work7.png" },
+    { img: "/Images/work6.png" },
+    { img: "/Images/work5.png" },
+    { img: "/Images/work3.png" },
+    { img: "/Images/work2.png" },
+    { img: "/Images/work1.png" },
+  ];
+  
+
   return (
     <>
       <Hero />
-      <PageMarquee />
+      <PageMarquee images={logos} />
       <Discover />
       <CtaMultiple />
       <Features />
       <Pricing />
+      <PageMarquee images={workImages} />
       <Tools />
       <Carousel />
       <Faq />

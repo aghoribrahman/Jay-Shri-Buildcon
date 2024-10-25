@@ -48,7 +48,7 @@ const Navbar = () => {
         <Link href="/" className="text-xl font-bold flex items-center ">
           <Image 
             src={JayShree} 
-            alt="Jay Shree Buildicon Infra" 
+            alt="Jay Shri Buildicon Infra" 
             width={150} 
             height={150} 
           />

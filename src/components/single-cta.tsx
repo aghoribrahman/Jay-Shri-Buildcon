@@ -43,8 +43,21 @@ const SingleCta = () => {
               transition={{ duration: 0.5 }}
             >
               <span className="block mb-2 text-xl font-bold">Contact Details:</span>
-              <span className="block text-base md:text-lg">📞 <strong>Mobile:</strong> 9005226363, 9415112493, 7388080806</span>
-              <span className="block text-base md:text-lg">✉️ <strong>Email:</strong> jayshribuildconho.jhansi2015@gmail.com</span>
+              
+              <span className="block mb-2 text-base md:text-lg">
+                📞 <strong>Mobile:</strong> 
+                <span className="block md:inline"> 9005226363, 9415112493, 7388080806</span>
+              </span>
+
+              <span className="block mb-2 text-base md:text-lg">
+                ✉️ <strong>Email:</strong> 
+                <span className="block md:inline"> jayshribuildconho.jhansi2015@gmail.com</span>
+              </span>
+
+              <span className="block mb-2 text-base md:text-lg">
+                🏢 <strong>Office:</strong> 
+                <span className="block md:inline"> Ghisoli Block Babina Distt - Jhansi (U.P)</span>
+              </span>
             </motion.p>
           </div>
         </div>

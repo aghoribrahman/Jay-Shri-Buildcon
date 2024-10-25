@@ -12,9 +12,9 @@ const Footer = () => {
           <div className="flex items-center space-x-1 mb-4 md:mb-0">
           <Image 
             src={JayShree} 
-            alt="Jay Shree Buildicon Infra" 
-            width={90} 
-            height={90} 
+            alt="Jay Shri Buildicon Infra" 
+            width={200} 
+            height={200} 
           />
           </div>
           <nav>
@@ -55,7 +55,7 @@ const Footer = () => {
         <Separator className="my-4 bg-zinc-300 dark:bg-zinc-700" />
         <div className="flex flex-col md:flex-row justify-between items-center text-sm">
           <p className="text-center md:text-left">
-            &copy; {new Date().getFullYear()} Jay Shree Buildicon. All rights reserved.
+            &copy; {new Date().getFullYear()} Jay Shri Buildicon. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-2 md:mt-0">
             <Link href="#" className="hover:underline text-zinc-500">

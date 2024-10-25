@@ -3,7 +3,6 @@
 import { useState } from "react";
 import * as Form from "@radix-ui/react-form";
 
-
 export function UserForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -15,23 +14,37 @@ export function UserForm() {
 
   const [submitted, setSubmitted] = useState(false); // State to track submission
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
-    // Handle form submission
-    console.log(formData);
-    
-    // Show thank you message
-    setSubmitted(true);
-    
-    // Reset form data after submission (optional)
-    setFormData({
-      name: "",
-      username: "",
-      email: "",
-      phoneNumber: "",
-      message: "",
-    });
+
+    // Send form data to FormBold
+    try {
+      const response = await fetch("https://formbold.com/s/3V7m5", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Show thank you message
+        setSubmitted(true);
+        
+        // Reset form data after submission (optional)
+        setFormData({
+          name: "",
+          username: "",
+          email: "",
+          phoneNumber: "",
+          message: "",
+        });
+      } else {
+        console.error("Failed to submit form", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+    }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,7 +57,9 @@ export function UserForm() {
 
   return (
     <div id="contact" className="w-full max-w-md mx-auto p-4">
-          <h2 className="text-2xl font-bold text-center mb-6">Please fill form, <span className="text-yellow-500">Our team</span>{" "} will reach out to you</h2> 
+      <h2 className="text-2xl font-bold text-center mb-6">
+        Please fill the form, <span className="text-yellow-500">Our team</span> will reach out to you
+      </h2> 
       {submitted ? (
         <div className="mb-4 text-green-600 text-center">
           Thank you for your submission!
