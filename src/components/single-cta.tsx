@@ -73,7 +73,7 @@ const SingleCta = () => {
             className="w-full h-auto"
             alt="JayShree"
             src="/Jay shree.png"
-            alt="CTA Image"
+            
           />
         </motion.div>
       </motion.div>
