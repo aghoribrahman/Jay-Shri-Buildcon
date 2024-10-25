@@ -81,7 +81,7 @@ const Hero = () => {
           className="absolute bottom-[0%] lg:bottom-[0%] right-[-8%] overflow-hidden"
           variants={itemVariants}
         >
-          <img className="lg:w-[610px] w-[250px]" src="/hero-img.png" />
+          <img alt="heroImage" className="lg:w-[610px] w-[250px]" src="/hero-img.png" />
           
         </motion.div>
       </motion.div>

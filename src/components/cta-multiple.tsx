@@ -1,7 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Button } from "@/components/ui/button";
 
 const CtaMultiple = () => {
   const ref = useRef(null);

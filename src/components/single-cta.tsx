@@ -71,6 +71,7 @@ const SingleCta = () => {
         >
           <img
             className="w-full h-auto"
+            alt="JayShree"
             src="/Jay shree.png"
             alt="CTA Image"
           />
