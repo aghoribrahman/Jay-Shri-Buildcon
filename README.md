@@ -1,9 +1,3 @@
-![wkiDExDSBzoLhAW6OwFzRUDd6E](https://github.com/user-attachments/assets/00c395c6-6f9d-4069-86f2-03155abe0cdf)
-
-
-# Free Template
-
-This project is a replica of the [Najm Framer Template](https://najm.framer.website/) built using **Next.js**, **ShadCN UI**, and **Framer Motion**. This template is free for everyone to use and customize according to their needs.
 
 ## Table of Contents
 
@@ -34,13 +28,13 @@ To get started with this project, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/mohitchandel/purp-lp.git
+   git clone "Github link of the project"
    ```
 
 2. **Navigate to the project directory:**
 
    ```bash
-   cd purp-lp
+   cd Jay Shree
    ```
 
 3. **Install the dependencies:**
